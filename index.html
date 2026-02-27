@@ -193,59 +193,94 @@
     ============================================================ */
     .progress-bar-wrap {
       background: var(--c-primary-dark);
-      padding: 0 var(--sp-4);
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: thin;
+      padding: var(--sp-4) var(--sp-5) 0;
+      user-select: none;
     }
     .progress-steps {
       max-width: var(--max-w);
       margin: 0 auto;
       display: flex;
-      align-items: stretch;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+    }
+    /* Connecting track line */
+    .progress-steps::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: calc(14px);
+      right: calc(14px);
+      height: 2px;
+      background: rgba(255,255,255,0.18);
+      transform: translateY(-50%);
+      z-index: 0;
     }
     .prog-step {
       display: flex;
       align-items: center;
-      padding: var(--sp-3) var(--sp-2);
+      justify-content: center;
       cursor: pointer;
-      border-bottom: 3px solid transparent;
-      transition: all var(--transition);
-      white-space: nowrap;
-      gap: var(--sp-2);
-      color: rgba(255,255,255,0.65);
-      font-size: var(--fs-xs);
-      font-weight: 600;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
       position: relative;
-      min-width: 0;
+      z-index: 1;
+      padding: 0;
+      border: none;
+      background: none;
+      flex-shrink: 0;
     }
-    .prog-step:hover { color: var(--c-white); }
-    .prog-step.active {
-      color: var(--c-white);
-      border-bottom-color: #fff;
-    }
-    .prog-step.completed { color: rgba(255,255,255,0.80); }
-    .prog-step.completed::after {
-      content: '✓';
-      font-size: var(--fs-sm);
-      color: #5cc87e;
-    }
+    .prog-step:focus-visible { outline: 2px solid var(--c-warning-border); outline-offset: 3px; border-radius: 50%; }
     .step-num {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 22px;
-      height: 22px;
+      width: 28px;
+      height: 28px;
       border-radius: 50%;
-      background: rgba(255,255,255,0.15);
-      font-size: var(--fs-xs);
+      background: rgba(255,255,255,0.10);
+      border: 2px solid rgba(255,255,255,0.28);
+      color: rgba(255,255,255,0.55);
+      font-size: 11px;
       font-weight: 700;
+      transition: all var(--transition);
       flex-shrink: 0;
     }
-    .prog-step.active .step-num { background: var(--c-white); color: var(--c-primary-dark); }
-    .prog-step.completed .step-num { background: #2e8540; color: white; }
+    .prog-step:hover .step-num {
+      background: rgba(255,255,255,0.22);
+      border-color: rgba(255,255,255,0.6);
+      color: #fff;
+    }
+    .prog-step.active .step-num {
+      width: 34px;
+      height: 34px;
+      background: var(--c-white);
+      border-color: var(--c-white);
+      color: var(--c-primary-dark);
+      font-size: 13px;
+      box-shadow: 0 0 0 4px rgba(255,255,255,0.20);
+    }
+    .prog-step.completed .step-num {
+      background: #2e8540;
+      border-color: #2e8540;
+      color: white;
+      font-size: 0;          /* hide number */
+    }
+    .prog-step.completed .step-num::before {
+      content: '✓';
+      font-size: 12px;
+    }
+    /* Current step label strip */
+    .prog-label-bar {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: var(--sp-2) var(--sp-2) var(--sp-3);
+      text-align: center;
+      font-size: var(--fs-xs);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.10em;
+      color: rgba(255,255,255,0.70);
+    }
+    .prog-label-bar strong { color: #fff; font-weight: 700; }
 
     /* ============================================================
        MAIN LAYOUT
@@ -910,50 +945,20 @@
 ============================================================ -->
 <nav class="progress-bar-wrap" aria-label="Guide steps">
   <div class="progress-steps" role="list">
-    <div class="prog-step active" role="listitem" onclick="goTo(0)" tabindex="0" aria-label="Step 0: Welcome">
-      <span class="step-num" aria-hidden="true">0</span>
-      <span>Welcome</span>
-    </div>
-    <div class="prog-step" role="listitem" onclick="goTo(1)" tabindex="0" aria-label="Step 1: Prepare">
-      <span class="step-num" aria-hidden="true">1</span>
-      <span>Prepare</span>
-    </div>
-    <div class="prog-step" role="listitem" onclick="goTo(2)" tabindex="0" aria-label="Step 2: Personal Info">
-      <span class="step-num" aria-hidden="true">2</span>
-      <span>Personal Info</span>
-    </div>
-    <div class="prog-step" role="listitem" onclick="goTo(3)" tabindex="0" aria-label="Step 3: Service History">
-      <span class="step-num" aria-hidden="true">3</span>
-      <span>Service</span>
-    </div>
-    <div class="prog-step" role="listitem" onclick="goTo(4)" tabindex="0" aria-label="Step 4: Conditions">
-      <span class="step-num" aria-hidden="true">4</span>
-      <span>Conditions</span>
-    </div>
-    <div class="prog-step" role="listitem" onclick="goTo(5)" tabindex="0" aria-label="Step 5: Your Statement">
-      <span class="step-num" aria-hidden="true">5</span>
-      <span>Your Statement</span>
-    </div>
-    <div class="prog-step" role="listitem" onclick="goTo(6)" tabindex="0" aria-label="Step 6: PTSD & Special">
-      <span class="step-num" aria-hidden="true">6</span>
-      <span>PTSD &amp; Special</span>
-    </div>
-    <div class="prog-step" role="listitem" onclick="goTo(7)" tabindex="0" aria-label="Step 7: Toxic Exposure">
-      <span class="step-num" aria-hidden="true">7</span>
-      <span>PACT Act</span>
-    </div>
-    <div class="prog-step" role="listitem" onclick="goTo(8)" tabindex="0" aria-label="Step 8: Evidence">
-      <span class="step-num" aria-hidden="true">8</span>
-      <span>Evidence</span>
-    </div>
-    <div class="prog-step" role="listitem" onclick="goTo(9)" tabindex="0" aria-label="Step 9: TDIU">
-      <span class="step-num" aria-hidden="true">9</span>
-      <span>TDIU</span>
-    </div>
-    <div class="prog-step" role="listitem" onclick="goTo(10)" tabindex="0" aria-label="Step 10: Submit">
-      <span class="step-num" aria-hidden="true">10</span>
-      <span>Submit</span>
-    </div>
+    <div class="prog-step active" role="listitem" onclick="goTo(0)" tabindex="0" aria-label="Step 0: Welcome"><span class="step-num">0</span></div>
+    <div class="prog-step" role="listitem" onclick="goTo(1)" tabindex="0" aria-label="Step 1: Prepare"><span class="step-num">1</span></div>
+    <div class="prog-step" role="listitem" onclick="goTo(2)" tabindex="0" aria-label="Step 2: Personal Info"><span class="step-num">2</span></div>
+    <div class="prog-step" role="listitem" onclick="goTo(3)" tabindex="0" aria-label="Step 3: Service History"><span class="step-num">3</span></div>
+    <div class="prog-step" role="listitem" onclick="goTo(4)" tabindex="0" aria-label="Step 4: Conditions"><span class="step-num">4</span></div>
+    <div class="prog-step" role="listitem" onclick="goTo(5)" tabindex="0" aria-label="Step 5: Your Statement"><span class="step-num">5</span></div>
+    <div class="prog-step" role="listitem" onclick="goTo(6)" tabindex="0" aria-label="Step 6: PTSD & Special"><span class="step-num">6</span></div>
+    <div class="prog-step" role="listitem" onclick="goTo(7)" tabindex="0" aria-label="Step 7: PACT Act"><span class="step-num">7</span></div>
+    <div class="prog-step" role="listitem" onclick="goTo(8)" tabindex="0" aria-label="Step 8: Evidence"><span class="step-num">8</span></div>
+    <div class="prog-step" role="listitem" onclick="goTo(9)" tabindex="0" aria-label="Step 9: TDIU"><span class="step-num">9</span></div>
+    <div class="prog-step" role="listitem" onclick="goTo(10)" tabindex="0" aria-label="Step 10: Submit"><span class="step-num">10</span></div>
+  </div>
+  <div class="prog-label-bar" aria-live="polite">
+    Step 0 of 10 &mdash; <strong id="prog-active-label">Welcome &amp; Overview</strong>
   </div>
 </nav>
 
@@ -2779,6 +2784,13 @@ Signature: _________________________     Date: _____________
       if (i < n) s.classList.add('completed');
       if (i === n) s.classList.add('active');
     });
+    // Update label bar
+    const labelEl = document.getElementById('prog-active-label');
+    if (labelEl) labelEl.textContent = STEP_TITLES[n] || '';
+    const labelBar = document.querySelector('.prog-label-bar');
+    if (labelBar) {
+      labelBar.innerHTML = 'Step ' + n + ' of ' + (TOTAL_STEPS - 1) + ' &mdash; <strong id="prog-active-label">' + (STEP_TITLES[n] || '') + '</strong>';
+    }
 
     // Update footer nav
     currentStep = n;
