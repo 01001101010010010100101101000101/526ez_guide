@@ -914,6 +914,173 @@
     .items-center { align-items: center; }
     .justify-between { justify-content: space-between; }
     .w-full { width: 100%; }
+
+    /* ============================================================
+       VA DISABILITY CALCULATOR — STEP 11
+    ============================================================ */
+    .calc-condition-row {
+      border: 1px solid var(--c-gray-3);
+      border-radius: var(--radius);
+      padding: var(--sp-4);
+      margin-bottom: var(--sp-3);
+      background: var(--c-gray-1);
+    }
+    .calc-cond-fields {
+      display: flex;
+      gap: var(--sp-3);
+      align-items: flex-end;
+      flex-wrap: wrap;
+    }
+    .calc-cond-label-field  { flex: 2; min-width: 150px; }
+    .calc-cond-rating-field { flex: 1; min-width: 105px; }
+    .calc-cond-bil-field    { flex: 1.2; min-width: 125px; }
+    .calc-cond-remove-field { flex: 0 0 auto; }
+    .calc-field-label {
+      display: block;
+      font-size: var(--fs-xs);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--c-gray-5);
+      margin-bottom: var(--sp-1);
+    }
+    .calc-select, .calc-text-input {
+      width: 100%;
+      height: 40px;
+      padding: 0 var(--sp-3);
+      border: 1.5px solid var(--c-gray-3);
+      border-radius: var(--radius-sm);
+      font-family: var(--f-sans);
+      font-size: var(--fs-base);
+      color: var(--c-text);
+      background: var(--c-white);
+    }
+    .calc-select:focus, .calc-text-input:focus {
+      outline: 2px solid var(--c-primary);
+      border-color: var(--c-primary);
+    }
+    .calc-bil-toggle {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-2);
+      height: 40px;
+      cursor: pointer;
+    }
+    .calc-bil-toggle input[type="checkbox"] {
+      width: 18px; height: 18px;
+      cursor: pointer;
+      accent-color: var(--c-primary);
+    }
+    .calc-bil-label { font-size: var(--fs-sm); font-weight: 600; }
+    .calc-dep-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: var(--sp-4);
+      margin-bottom: var(--sp-4);
+    }
+    @media (max-width: 600px) { .calc-dep-grid { grid-template-columns: 1fr; } }
+    /* Result step blocks */
+    .calc-step-block {
+      border: 1px solid var(--c-gray-3);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: var(--sp-3);
+    }
+    .calc-step-hdr {
+      background: var(--c-primary-darker);
+      color: #fff;
+      padding: var(--sp-2) var(--sp-4);
+      font-size: var(--fs-sm);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .calc-step-hdr.bil { background: var(--c-law); }
+    .calc-step-hdr.final { background: var(--c-success); }
+    .calc-step-body { padding: var(--sp-3); }
+    .calc-step-row {
+      display: flex;
+      gap: var(--sp-3);
+      align-items: flex-start;
+      padding: var(--sp-2) 0;
+      border-bottom: 1px solid var(--c-gray-2);
+      font-size: var(--fs-sm);
+    }
+    .calc-step-row:last-child { border-bottom: none; }
+    .calc-step-num {
+      flex: 0 0 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--c-primary-light);
+      color: var(--c-primary-dark);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: var(--fs-xs);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .calc-step-num.bil { background: var(--c-law-light); color: var(--c-law); }
+    .calc-step-desc { flex: 1; line-height: 1.55; }
+    .calc-step-result {
+      display: block;
+      margin-top: 3px;
+      color: var(--c-primary-dark);
+      font-weight: 700;
+    }
+    .calc-result-banner {
+      background: linear-gradient(135deg, var(--c-primary-darker), var(--c-primary));
+      color: #fff;
+      border-radius: var(--radius-lg);
+      padding: var(--sp-8) var(--sp-6);
+      margin: var(--sp-6) 0;
+      text-align: center;
+    }
+    .calc-banner-rating {
+      font-size: 4.5rem;
+      font-weight: 900;
+      line-height: 1;
+      margin: var(--sp-2) 0;
+    }
+    .calc-banner-raw {
+      font-size: var(--fs-sm);
+      opacity: 0.75;
+      margin-bottom: var(--sp-6);
+    }
+    .calc-banner-money {
+      display: flex;
+      justify-content: center;
+      gap: var(--sp-8);
+      flex-wrap: wrap;
+    }
+    .calc-banner-money-item { text-align: center; }
+    .calc-banner-amount { font-size: 1.9rem; font-weight: 800; display: block; }
+    .calc-banner-period { font-size: var(--fs-xs); opacity: 0.72; text-transform: uppercase; letter-spacing: 0.08em; }
+    .calc-banner-dep { font-size: var(--fs-sm); opacity: 0.7; margin-top: var(--sp-4); }
+    .calc-cond-tags { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin-bottom: var(--sp-5); }
+    .calc-cond-tag {
+      background: var(--c-primary-light);
+      color: var(--c-primary-dark);
+      border: 1px solid var(--c-primary);
+      border-radius: var(--radius-sm);
+      padding: 3px 10px;
+      font-size: var(--fs-sm);
+      font-weight: 600;
+    }
+    .calc-cond-tag .bil-badge {
+      background: var(--c-law-light);
+      color: var(--c-law);
+      border-radius: 3px;
+      padding: 0 4px;
+      font-size: var(--fs-xs);
+      margin-left: 4px;
+    }
+    @media (max-width: 500px) {
+      .calc-banner-rating { font-size: 3.2rem; }
+      .calc-banner-amount { font-size: 1.4rem; }
+      .calc-banner-money { gap: var(--sp-5); }
+    }
   </style>
 </head>
 <body>
@@ -956,6 +1123,7 @@
     <div class="prog-step" role="listitem" onclick="goTo(8)" tabindex="0" aria-label="Step 8: Evidence"><span class="step-num">8</span></div>
     <div class="prog-step" role="listitem" onclick="goTo(9)" tabindex="0" aria-label="Step 9: TDIU"><span class="step-num">9</span></div>
     <div class="prog-step" role="listitem" onclick="goTo(10)" tabindex="0" aria-label="Step 10: Submit"><span class="step-num">10</span></div>
+    <div class="prog-step" role="listitem" onclick="goTo(11)" tabindex="0" aria-label="Step 11: Calculator"><span class="step-num" style="font-size:9px;">CALC</span></div>
   </div>
   <div class="prog-label-bar" aria-live="polite">
     Step 0 of 10 &mdash; <strong id="prog-active-label">Welcome &amp; Overview</strong>
@@ -2721,6 +2889,161 @@ Signature: _________________________     Date: _____________
 </section>
 
 <!-- ================================================================
+     STEP 11 — VA DISABILITY CALCULATOR (2026 RATES)
+================================================================ -->
+<section id="step-11" class="step-content" aria-labelledby="step11-title">
+
+  <div class="step-intro" style="border-top-color: var(--c-law);">
+    <div class="step-label" style="color: var(--c-law);">&#128290; Bonus Tool</div>
+    <h2 id="step11-title" style="color: var(--c-law);">VA Disability Calculator &mdash; 2026 Rates</h2>
+    <p class="step-description">Enter your service-connected conditions below to calculate your combined VA disability rating using the official VA "Whole Person" formula (38 CFR &sect; 4.25), the bilateral factor (38 CFR &sect; 4.26), and 2026 monthly compensation rates.</p>
+  </div>
+
+  <div class="callout callout-info">
+    <div class="callout-label">&#9432; Estimate Only &mdash; Not Legal Advice</div>
+    <p class="mb-0">This calculator uses the VA's mathematical combined rating formula and 2026 VA compensation rates (effective December 1, 2025, based on a 2.5% COLA). Results are <strong>estimates only</strong>. Actual ratings are set by VA rating specialists using complete medical evidence and diagnostic codes per 38 CFR Part 4. For official rates visit VA.gov or speak with a VSO.</p>
+  </div>
+
+  <!-- ── CALCULATOR CARD ─────────────────────────────────────── -->
+  <div class="card">
+    <div class="card-title">&#9998; Enter Your Service-Connected Conditions</div>
+
+    <p class="text-sm text-muted" style="margin-bottom:var(--sp-4);">Add each condition with its VA rating. Order does not matter — the calculator sorts automatically. Check <strong>Bilateral</strong> only if the disability affects <em>both sides</em> of the same paired extremity (e.g., both knees, both shoulders, bilateral hearing loss).</p>
+
+    <div id="calc-conditions-list"></div>
+
+    <div style="margin-bottom:var(--sp-6);">
+      <button class="btn btn-secondary btn-sm" onclick="calcAddCondition()" id="calc-add-btn">&#43; Add Another Condition</button>
+    </div>
+
+    <div class="callout callout-tip" style="margin-bottom:var(--sp-5);">
+      <div class="callout-label">&#9989; Bilateral Factor Qualifies When&hellip;</div>
+      <p class="mb-0">Both sides of the <strong>same</strong> paired extremity are rated: both knees, both hips, both ankles, both feet, both shoulders, both elbows, both wrists/hands, bilateral hearing loss, or bilateral eye conditions. A left knee <em>plus</em> a right shoulder does <strong>not</strong> qualify.</p>
+    </div>
+
+    <hr class="section-divider" style="margin:var(--sp-4) 0;">
+
+    <h3 style="margin-bottom:var(--sp-2);">Dependency Status</h3>
+    <p class="text-sm text-muted" style="margin-bottom:var(--sp-4);">Affects monthly compensation for ratings of 30% or higher. Below 30%, all statuses receive the same base rate.</p>
+
+    <div class="calc-dep-grid">
+      <div>
+        <label class="calc-field-label" for="calc-dependency">Family Status</label>
+        <select id="calc-dependency" class="calc-select" onchange="calcUpdateDepUI()">
+          <option value="alone">Veteran Alone (No Dependents)</option>
+          <option value="withSpouse">Veteran + Spouse (No Children)</option>
+          <option value="withSpouseChildren">Veteran + Spouse + Children</option>
+          <option value="withChildren">Veteran + Children (No Spouse)</option>
+        </select>
+      </div>
+      <div id="calc-children-grp" style="display:none;">
+        <label class="calc-field-label" for="calc-children">Children</label>
+        <select id="calc-children" class="calc-select">
+          <option value="1">1 Child</option>
+          <option value="2">2 Children</option>
+          <option value="3">3 Children</option>
+          <option value="4">4 Children</option>
+          <option value="5">5 Children</option>
+        </select>
+      </div>
+      <div>
+        <label class="calc-field-label" for="calc-parents">Dependent Parents</label>
+        <select id="calc-parents" class="calc-select">
+          <option value="0">None</option>
+          <option value="1">1 Parent</option>
+          <option value="2">2 Parents</option>
+        </select>
+      </div>
+    </div>
+
+    <div style="margin:var(--sp-4) 0 var(--sp-6);">
+      <button class="btn btn-primary" onclick="calcCompute()" style="font-size:1.05rem;padding:0.75rem 2rem;">
+        &#128290; Calculate My Combined Rating
+      </button>
+    </div>
+
+    <!-- Results panel — populated by JS -->
+    <div id="calc-results" style="display:none;"></div>
+  </div>
+
+  <!-- ── HOW IT WORKS ────────────────────────────────────────── -->
+  <div class="card">
+    <div class="card-title">&#128208; How the VA Combined Rating Formula Works</div>
+
+    <p>The VA does <strong>not</strong> add disability percentages together. It applies the <strong>"Whole Person" formula</strong> from <strong>38 CFR &sect; 4.25</strong> — each disability is applied to the <em>remaining efficiency</em> of the whole person after prior disabilities are applied.</p>
+
+    <div class="callout callout-law">
+      <div class="callout-label">&#9878; 38 CFR &sect; 4.25 &mdash; Combined Ratings Formula</div>
+      <p class="mb-0">"The combined degree of disability will be determined by applying, in the order of their severity, the percentages of disability to the remainder of the whole person after each previous disability has been applied."</p>
+    </div>
+
+    <h4>Example: 50% + 30% + 20%</h4>
+    <ol>
+      <li>Start with 100% (whole person = 100% efficiency remaining)</li>
+      <li>50%: lose 50% &times; 100 = <strong>50</strong> &rarr; remaining: 50 &rarr; combined: <strong>50%</strong></li>
+      <li>30%: lose 30% &times; 50 = <strong>15</strong> &rarr; remaining: 35 &rarr; combined: <strong>65%</strong></li>
+      <li>20%: lose 20% &times; 35 = <strong>7</strong> &rarr; remaining: 28 &rarr; combined: <strong>72%</strong></li>
+      <li>Round 72% &rarr; <strong>70%</strong> (ones digit 2 &lt; 5, rounds down)</li>
+    </ol>
+
+    <h4 style="margin-top:var(--sp-5);">Bilateral Factor &mdash; 38 CFR &sect; 4.26</h4>
+    <p>When disabilities affect <strong>both paired extremities</strong>, the VA adds a <strong>10% bonus</strong> to the combined value of those bilateral conditions before combining them with remaining disabilities.</p>
+    <ol>
+      <li>Combine all bilateral conditions (whole person formula) &rarr; result: <strong>B%</strong></li>
+      <li>Apply factor: B &times; 1.10 &rarr; <strong>B_enhanced%</strong> (capped at 100%)</li>
+      <li>Combine B_enhanced with non-bilateral conditions (sorted high &rarr; low)</li>
+      <li>Round final result to nearest 10%</li>
+    </ol>
+
+    <h4 style="margin-top:var(--sp-5);">Rounding Rule</h4>
+    <ul>
+      <li>Ones digit <strong>0&ndash;4</strong>: round <strong>down</strong> &nbsp;&mdash;&nbsp; e.g., 64% &rarr; 60%</li>
+      <li>Ones digit <strong>5&ndash;9</strong>: round <strong>up</strong> &nbsp;&mdash;&nbsp; e.g., 65% &rarr; 70%</li>
+    </ul>
+  </div>
+
+  <!-- ── 2026 RATES TABLE ────────────────────────────────────── -->
+  <div class="card">
+    <div class="card-title">&#128202; 2026 VA Monthly Compensation Rates</div>
+    <p class="text-sm text-muted" style="margin-bottom:var(--sp-4);">Effective December 1, 2025 (paid January 2026). Based on a 2.5% COLA applied to 2025 published rates. All amounts are <strong>tax-free</strong> monthly payments.</p>
+
+    <div style="overflow-x:auto;">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Rating</th>
+            <th>Veteran Alone</th>
+            <th>+ Spouse</th>
+            <th>+ Spouse + 1 Child</th>
+            <th>+ 1 Child (No Spouse)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>10%</strong></td><td>$179.90</td><td>$179.90</td><td>$179.90</td><td>$179.90</td></tr>
+          <tr><td><strong>20%</strong></td><td>$355.62</td><td>$355.62</td><td>$355.62</td><td>$355.62</td></tr>
+          <tr><td><strong>30%</strong></td><td>$550.86</td><td>$617.14</td><td>$669.54</td><td>$595.25</td></tr>
+          <tr><td><strong>40%</strong></td><td>$793.51</td><td>$879.69</td><td>$952.17</td><td>$850.65</td></tr>
+          <tr><td><strong>50%</strong></td><td>$1,129.59</td><td>$1,236.07</td><td>$1,333.08</td><td>$1,178.59</td></tr>
+          <tr><td><strong>60%</strong></td><td>$1,430.83</td><td>$1,555.58</td><td>$1,666.43</td><td>$1,490.98</td></tr>
+          <tr><td><strong>70%</strong></td><td>$1,803.17</td><td>$1,947.65</td><td>$2,071.87</td><td>$1,853.52</td></tr>
+          <tr><td><strong>80%</strong></td><td>$2,096.01</td><td>$2,260.45</td><td>$2,397.34</td><td>$2,157.88</td></tr>
+          <tr><td><strong>90%</strong></td><td>$2,355.41</td><td>$2,539.88</td><td>$2,689.32</td><td>$2,428.38</td></tr>
+          <tr><td><strong>100%</strong></td><td>$3,927.08</td><td>$4,129.27</td><td>$4,273.74</td><td>$4,066.17</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="text-xs text-muted">Additional amounts per extra child (30%+): ~$30&ndash;$101/mo by rating. Additional amount per dependent parent (30%+): ~$31&ndash;$103/mo. These are added automatically by the calculator above for selected scenarios.</p>
+
+    <div class="callout callout-gold" style="margin-top:var(--sp-4);">
+      <div class="callout-label">&#9733; 100% Rating &amp; Special Benefits</div>
+      <p class="mb-0">The 100% rate shown is the base rate. Veterans at 100% may also qualify for <strong>SMC (Special Monthly Compensation)</strong>, <strong>Dependents' Educational Assistance (DEA)</strong>, waiver of VA loan funding fee, and more. TDIU pays at the 100% rate even with a combined rating below 100%.</p>
+    </div>
+  </div>
+
+</section>
+
+<!-- ================================================================
      STEP NAV FOOTER
 ================================================================ -->
 <div class="step-nav" role="navigation" aria-label="Step navigation">
@@ -2745,7 +3068,7 @@ Signature: _________________________     Date: _____________
 ================================================================ -->
 <script>
   // ---- State ----
-  const TOTAL_STEPS = 11;
+  const TOTAL_STEPS = 12;
   const STEP_TITLES = [
     'Welcome & Overview',
     'Gather Your Documents',
@@ -2757,7 +3080,8 @@ Signature: _________________________     Date: _____________
     'Toxic Exposures & PACT Act',
     'Evidence & Documents',
     'TDIU — Unemployability',
-    'Direct Deposit & Submission'
+    'Direct Deposit & Submission',
+    'VA Disability Calculator — 2026 Rates'
   ];
   let currentStep = 0;
 
@@ -2887,6 +3211,283 @@ Signature: _________________________     Date: _____________
     });
   }
 
+  // ================================================================
+  // VA DISABILITY CALCULATOR — 2026 RATES
+  // ================================================================
+
+  // 2026 monthly compensation rates (2025 × 1.025, rounded to cent)
+  const CALC_RATES = {
+    alone:            {10:179.90, 20:355.62, 30:550.86, 40:793.51, 50:1129.59, 60:1430.83, 70:1803.17, 80:2096.01, 90:2355.41, 100:3927.08},
+    withSpouse:       {10:179.90, 20:355.62, 30:617.14, 40:879.69, 50:1236.07, 60:1555.58, 70:1947.65, 80:2260.45, 90:2539.88, 100:4129.27},
+    withSpouseChild1: {10:179.90, 20:355.62, 30:669.54, 40:952.17, 50:1333.08, 60:1666.43, 70:2071.87, 80:2397.34, 90:2689.32, 100:4273.74},
+    withChild1:       {10:179.90, 20:355.62, 30:595.25, 40:850.65, 50:1178.59, 60:1490.98, 70:1853.52, 80:2157.88, 90:2428.38, 100:4066.17},
+    extraChild:       {10:0,      20:0,      30:30.29,  40:40.39,  50:50.48,   60:60.61,   70:70.73,   80:80.83,   90:90.94,   100:101.03},
+    extraParent:      {10:0,      20:0,      30:30.80,  40:41.07,  50:51.34,   60:61.60,   70:71.87,   80:82.14,   90:92.42,   100:102.70}
+  };
+
+  let calcRowId = 0;
+
+  function calcAddCondition(rating, bilateral, label) {
+    calcRowId++;
+    const id = calcRowId;
+    const list = document.getElementById('calc-conditions-list');
+    if (!list) return;
+    const ratingOptions = [0,10,20,30,40,50,60,70,80,90,100]
+      .map(v => `<option value="${v}" ${v === (rating || 0) ? 'selected' : ''}>${v === 0 ? '-- Select %' : v + '%'}</option>`)
+      .join('');
+    const row = document.createElement('div');
+    row.className = 'calc-condition-row';
+    row.id = 'calc-row-' + id;
+    row.innerHTML =
+      '<div class="calc-cond-fields">' +
+        '<div class="calc-cond-label-field">' +
+          '<label class="calc-field-label" for="calc-lbl-' + id + '">Condition Name</label>' +
+          '<input type="text" id="calc-lbl-' + id + '" class="calc-text-input" placeholder="e.g., Left knee" maxlength="60" value="' + (label || '') + '">' +
+        '</div>' +
+        '<div class="calc-cond-rating-field">' +
+          '<label class="calc-field-label" for="calc-rtg-' + id + '">VA Rating</label>' +
+          '<select id="calc-rtg-' + id + '" class="calc-select">' + ratingOptions + '</select>' +
+        '</div>' +
+        '<div class="calc-cond-bil-field">' +
+          '<label class="calc-field-label">Bilateral?</label>' +
+          '<label class="calc-bil-toggle">' +
+            '<input type="checkbox" id="calc-bil-' + id + '"' + (bilateral ? ' checked' : '') + '>' +
+            '<span class="calc-bil-label">Yes &mdash; Both Sides</span>' +
+          '</label>' +
+        '</div>' +
+        '<div class="calc-cond-remove-field">' +
+          '<label class="calc-field-label">&nbsp;</label>' +
+          '<button class="btn btn-sm" style="background:var(--c-error-light);color:var(--c-error);border-color:var(--c-error);padding:0.3rem 0.6rem;" onclick="calcRemoveRow(' + id + ')" aria-label="Remove condition">&#10005; Remove</button>' +
+        '</div>' +
+      '</div>';
+    list.appendChild(row);
+  }
+
+  function calcRemoveRow(id) {
+    const row = document.getElementById('calc-row-' + id);
+    if (row) row.remove();
+  }
+
+  function calcUpdateDepUI() {
+    const dep = document.getElementById('calc-dependency').value;
+    const cg = document.getElementById('calc-children-grp');
+    if (cg) cg.style.display = (dep === 'withSpouseChildren' || dep === 'withChildren') ? 'block' : 'none';
+  }
+
+  function calcLookupRate(rounded, dep, numChildren, numParents) {
+    const r = rounded;
+    let base = 0;
+    if (dep === 'alone') {
+      base = CALC_RATES.alone[r] || 0;
+    } else if (dep === 'withSpouse') {
+      base = CALC_RATES.withSpouse[r] || 0;
+    } else if (dep === 'withSpouseChildren') {
+      base = CALC_RATES.withSpouseChild1[r] || 0;
+      if (numChildren > 1) base += (CALC_RATES.extraChild[r] || 0) * (numChildren - 1);
+    } else if (dep === 'withChildren') {
+      base = CALC_RATES.withChild1[r] || 0;
+      if (numChildren > 1) base += (CALC_RATES.extraChild[r] || 0) * (numChildren - 1);
+    }
+    if (r >= 30 && numParents > 0) {
+      base += (CALC_RATES.extraParent[r] || 0) * numParents;
+    }
+    return base;
+  }
+
+  function calcFmtMoney(n) {
+    return '$' + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
+
+  function calcDepLabel(dep, nc, np) {
+    const map = {
+      alone: 'Veteran Alone',
+      withSpouse: 'Veteran + Spouse',
+      withSpouseChildren: 'Veteran + Spouse + ' + nc + ' Child' + (nc !== 1 ? 'ren' : ''),
+      withChildren: 'Veteran + ' + nc + ' Child' + (nc !== 1 ? 'ren' : '') + ' (No Spouse)'
+    };
+    let s = map[dep] || 'Veteran Alone';
+    if (np > 0) s += ' + ' + np + ' Dependent Parent' + (np !== 1 ? 's' : '');
+    return s;
+  }
+
+  function calcCompute() {
+    // Collect conditions
+    const list = document.getElementById('calc-conditions-list');
+    if (!list) return;
+    const rows = list.querySelectorAll('.calc-condition-row');
+    const conditions = [];
+    rows.forEach(function(row) {
+      const m = row.id.match(/calc-row-(\d+)/);
+      if (!m) return;
+      const id = m[1];
+      const rtg = parseInt((document.getElementById('calc-rtg-' + id) || {}).value || '0');
+      if (rtg <= 0) return;
+      const bil = !!(document.getElementById('calc-bil-' + id) || {}).checked;
+      const lbl = ((document.getElementById('calc-lbl-' + id) || {}).value || '').trim() || 'Condition';
+      conditions.push({ rating: rtg, bilateral: bil, label: lbl });
+    });
+
+    if (conditions.length === 0) {
+      alert('Please add at least one condition with a rating of 10% or higher.');
+      return;
+    }
+
+    const bilConds = conditions.filter(function(c) { return c.bilateral; })
+      .sort(function(a, b) { return b.rating - a.rating; });
+    const nonBilConds = conditions.filter(function(c) { return !c.bilateral; })
+      .sort(function(a, b) { return b.rating - a.rating; });
+
+    // Phase 1: combine bilaterals
+    var bilCombined = 0, bilFactor = 0, bilEnhanced = 0;
+    var bilSteps = [];
+    var hasBil = bilConds.length > 0;
+    if (hasBil) {
+      var rem = 100;
+      bilConds.forEach(function(c) {
+        var prev = rem;
+        var lost = prev * (c.rating / 100);
+        rem -= lost;
+        bilCombined = 100 - rem;
+        bilSteps.push({ label: c.label, rating: c.rating, prev: prev, lost: lost, combined: bilCombined, rem: rem });
+      });
+      bilFactor = bilCombined * 0.10;
+      bilEnhanced = Math.min(bilCombined + bilFactor, 100);
+    }
+
+    // Phase 2: combine everything
+    var allItems = [];
+    nonBilConds.forEach(function(c) { allItems.push({ rating: c.rating, label: c.label, isBil: false }); });
+    if (hasBil) allItems.push({ rating: bilEnhanced, label: 'Bilateral Group + 10% Factor', isBil: true });
+    allItems.sort(function(a, b) { return b.rating - a.rating; });
+
+    var finalCombined = 0;
+    var rem2 = 100;
+    var finalSteps = [];
+    allItems.forEach(function(item) {
+      var prev = rem2;
+      var lost = prev * (item.rating / 100);
+      rem2 -= lost;
+      finalCombined = 100 - rem2;
+      finalSteps.push({ label: item.label, rating: item.rating, isBil: item.isBil, prev: prev, lost: lost, combined: finalCombined, rem: rem2 });
+    });
+
+    // Round to nearest 10
+    var rounded = Math.round(finalCombined / 10) * 10;
+    rounded = Math.max(10, Math.min(100, rounded));
+
+    // Dependency
+    var dep = (document.getElementById('calc-dependency') || {}).value || 'alone';
+    var nc = parseInt((document.getElementById('calc-children') || {}).value || '1');
+    var np = parseInt((document.getElementById('calc-parents') || {}).value || '0');
+    var monthly = calcLookupRate(rounded, dep, nc, np);
+
+    calcRenderResults({
+      conditions: conditions,
+      bilConds: bilConds, nonBilConds: nonBilConds,
+      hasBil: hasBil, bilCombined: bilCombined, bilFactor: bilFactor,
+      bilEnhanced: bilEnhanced, bilSteps: bilSteps,
+      allItems: allItems, finalSteps: finalSteps,
+      finalCombined: finalCombined, rounded: rounded,
+      monthly: monthly, dep: dep, nc: nc, np: np
+    });
+
+    var res = document.getElementById('calc-results');
+    if (res) {
+      res.style.display = 'block';
+      res.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  function calcRenderResults(d) {
+    var html = '';
+
+    // Banner
+    html += '<div class="calc-result-banner">';
+    html += '<div style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.12em;opacity:0.8;margin-bottom:0.4rem;">Combined VA Disability Rating</div>';
+    html += '<div class="calc-banner-rating">' + d.rounded + '%</div>';
+    html += '<div class="calc-banner-raw">Raw combined: ' + d.finalCombined.toFixed(2) + '% &rarr; Rounded to <strong>' + d.rounded + '%</strong></div>';
+    html += '<div class="calc-banner-money">';
+    html += '<div class="calc-banner-money-item"><span class="calc-banner-amount">' + calcFmtMoney(d.monthly) + '</span><span class="calc-banner-period">Monthly (2026)</span></div>';
+    html += '<div class="calc-banner-money-item"><span class="calc-banner-amount">' + calcFmtMoney(d.monthly * 12) + '</span><span class="calc-banner-period">Annual (2026)</span></div>';
+    html += '</div>';
+    html += '<div class="calc-banner-dep">' + calcDepLabel(d.dep, d.nc, d.np) + '</div>';
+    html += '</div>';
+
+    // Conditions entered
+    html += '<h4 style="margin-bottom:0.6rem;color:var(--c-primary-darker);">Conditions Entered</h4>';
+    html += '<div class="calc-cond-tags">';
+    d.conditions.forEach(function(c) {
+      html += '<span class="calc-cond-tag">' + c.label + ': <strong>' + c.rating + '%</strong>';
+      if (c.bilateral) html += '<span class="bil-badge">Bilateral</span>';
+      html += '</span>';
+    });
+    html += '</div>';
+
+    // Phase 1 bilateral steps
+    if (d.hasBil) {
+      html += '<div class="calc-step-block">';
+      html += '<div class="calc-step-hdr bil">Phase 1 &mdash; Combine Bilateral Conditions (38 CFR &sect; 4.26)</div>';
+      html += '<div class="calc-step-body">';
+      d.bilSteps.forEach(function(s, i) {
+        html += '<div class="calc-step-row">';
+        html += '<span class="calc-step-num bil">' + (i + 1) + '</span>';
+        html += '<span class="calc-step-desc"><strong>' + s.label + ' (' + s.rating + '%)</strong>: ';
+        html += s.rating + '% &times; ' + s.prev.toFixed(2) + '% remaining = ' + s.lost.toFixed(2) + '% lost';
+        html += '<span class="calc-step-result">Bilateral combined so far: ' + s.combined.toFixed(2) + '% &nbsp;|&nbsp; Remaining: ' + s.rem.toFixed(2) + '%</span>';
+        html += '</span></div>';
+      });
+      html += '<div class="calc-step-row">';
+      html += '<span class="calc-step-num bil">&#10005;</span>';
+      html += '<span class="calc-step-desc"><strong>10% Bilateral Factor Applied:</strong> ';
+      html += d.bilCombined.toFixed(2) + '% &times; 1.10 = ' + (d.bilCombined + d.bilFactor).toFixed(2) + '%';
+      if (d.bilEnhanced >= 100) html += ' (capped at 100%)';
+      html += '<span class="calc-step-result" style="color:var(--c-law);">Enhanced Bilateral Value: <strong>' + d.bilEnhanced.toFixed(2) + '%</strong></span>';
+      html += '</span></div>';
+      html += '</div></div>';
+    }
+
+    // Phase 2 / main combination
+    html += '<div class="calc-step-block" style="margin-top:' + (d.hasBil ? '0.6rem' : '0') + ';">';
+    if (d.hasBil) {
+      html += '<div class="calc-step-hdr">Phase 2 &mdash; Combine Enhanced Bilateral with All Other Conditions</div>';
+    } else {
+      html += '<div class="calc-step-hdr">Whole Person Combined Rating (38 CFR &sect; 4.25)</div>';
+    }
+    html += '<div class="calc-step-body">';
+    d.finalSteps.forEach(function(s, i) {
+      var ratingStr = s.isBil ? s.rating.toFixed(2) : s.rating;
+      html += '<div class="calc-step-row">';
+      html += '<span class="calc-step-num' + (s.isBil ? ' bil' : '') + '">' + (i + 1) + '</span>';
+      html += '<span class="calc-step-desc"><strong>' + s.label + ' (' + ratingStr + '%)</strong>: ';
+      html += ratingStr + '% &times; ' + s.prev.toFixed(2) + '% remaining = ' + s.lost.toFixed(2) + '% lost';
+      html += '<span class="calc-step-result">Combined so far: ' + s.combined.toFixed(2) + '% &nbsp;|&nbsp; Remaining: ' + s.rem.toFixed(2) + '%</span>';
+      html += '</span></div>';
+    });
+    html += '</div></div>';
+
+    // Rounding step
+    var onesDigit = Math.floor(d.finalCombined) % 10;
+    var dir = onesDigit >= 5 ? 'up' : 'down';
+    html += '<div class="calc-step-block" style="margin-top:0.6rem;">';
+    html += '<div class="calc-step-hdr final">Final Rounding (Nearest 10%)</div>';
+    html += '<div class="calc-step-body"><div class="calc-step-row">';
+    html += '<span class="calc-step-num" style="background:var(--c-success-light);color:var(--c-success);">&#8594;</span>';
+    html += '<span class="calc-step-desc">';
+    html += 'Raw combined: <strong>' + d.finalCombined.toFixed(2) + '%</strong><br>';
+    html += 'Ones digit = <strong>' + onesDigit + '</strong> &rarr; rounds <strong>' + dir + '</strong><br>';
+    html += '<span class="calc-step-result" style="font-size:1.05rem;color:var(--c-success);">Final Combined Rating: <strong>' + d.rounded + '%</strong></span>';
+    html += '</span></div></div></div>';
+
+    // Disclaimer
+    html += '<div class="callout callout-warning" style="margin-top:1.25rem;">';
+    html += '<div class="callout-label">&#9888; Estimate Only</div>';
+    html += '<p class="mb-0">This result is a mathematical estimate. VA rating specialists apply additional clinical criteria, diagnostic codes, and regulatory rules that may produce a different final rating. Verify your rating with VA.gov, a VSO, or a VA-accredited attorney. Monthly rates are 2026 estimates based on 2.5% COLA from published 2025 rates.</p>';
+    html += '</div>';
+
+    var el = document.getElementById('calc-results');
+    if (el) el.innerHTML = html;
+  }
+
   // ---- Init ----
   document.addEventListener('DOMContentLoaded', function() {
     // Restore saved step
@@ -2914,6 +3515,10 @@ Signature: _________________________     Date: _____________
         }
       }
     } catch(e) {}
+
+    // Initialize calculator with two blank condition rows
+    calcAddCondition();
+    calcAddCondition();
   });
 </script>
 </body>
